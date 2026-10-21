@@ -8,6 +8,7 @@ import java.util.List;
 
 /** FR-06: background thread that keeps the queue moving (Module III: multithreading). */
 @Component
+@org.springframework.context.annotation.DependsOn("schemaInitializer")
 public class QueueProcessor implements Runnable {
     private final BookingService bookings;
     private final Thread thread = new Thread(this, "queue-processor");

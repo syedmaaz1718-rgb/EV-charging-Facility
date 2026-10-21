@@ -23,7 +23,7 @@ public class ReportService {
         m.put("chargersMaint", db.queryForObject("SELECT COUNT(*) FROM chargers WHERE status='MAINTENANCE'", Integer.class));
         m.put("inQueue", db.queryForObject("SELECT COUNT(*) FROM bookings WHERE status='QUEUED'", Integer.class));
         m.put("revenueToday", db.queryForObject(
-                "SELECT COALESCE(SUM(amount),0) FROM invoices WHERE DATE(issued_at)=CURRENT_DATE", Double.class));
+                "SELECT COALESCE(SUM(amount),0) FROM invoices WHERE CAST(issued_at AS DATE)=CURRENT_DATE", Double.class));
         m.put("customers", db.queryForObject("SELECT COUNT(*) FROM users WHERE role='CUSTOMER'", Integer.class));
         return m;
     }
@@ -31,7 +31,7 @@ public class ReportService {
     /** kWh per hour of day for the last 24h of completed sessions: 24 values for the bar chart. */
     public List<Double> demandByHour() {
         Map<Integer, Double> byHour = new HashMap<>();
-        db.query("SELECT HOUR(start_time) h, SUM(energy_kwh) e FROM sessions WHERE status='COMPLETED' GROUP BY HOUR(start_time)", (RowCallbackHandler) rs -> byHour.put(rs.getInt("h"), rs.getDouble("e")));
+        db.query("SELECT EXTRACT(HOUR FROM start_time) h, SUM(energy_kwh) e FROM sessions WHERE status='COMPLETED' GROUP BY EXTRACT(HOUR FROM start_time)", (RowCallbackHandler) rs -> byHour.put(rs.getInt("h"), rs.getDouble("e")));
         List<Double> out = new ArrayList<>(24);
         for (int h = 0; h < 24; h++) out.add(byHour.getOrDefault(h, 0.0));
         return out;
@@ -51,10 +51,11 @@ public class ReportService {
 
     public List<Map<String, Object>> monthlyDemand() {
         return db.queryForList("""
-            SELECT CONCAT(YEAR(start_time),'-',LPAD(MONTH(start_time),2,'0')) ym,
+            SELECT CONCAT(EXTRACT(YEAR FROM start_time),'-',EXTRACT(MONTH FROM start_time)) ym,
                    COUNT(*) sessions, SUM(energy_kwh) energy, SUM(amount) revenue
             FROM sessions WHERE status='COMPLETED'
-            GROUP BY CONCAT(YEAR(start_time),'-',LPAD(MONTH(start_time),2,'0')) ORDER BY ym""");
+            GROUP BY CONCAT(EXTRACT(YEAR FROM start_time),'-',EXTRACT(MONTH FROM start_time))
+            ORDER BY MIN(start_time)""");
     }
 
     public List<Map<String, Object>> dailyReport() {

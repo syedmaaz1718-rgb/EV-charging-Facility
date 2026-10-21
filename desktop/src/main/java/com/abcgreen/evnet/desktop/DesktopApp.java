@@ -64,7 +64,7 @@ public class DesktopApp extends JFrame {
         g.gridy = 7; p.add(status, g);
         connect.addActionListener(e -> {
             try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
+                Class.forName(url.getText().trim().startsWith("jdbc:postgresql") ? "org.postgresql.Driver" : "com.mysql.cj.jdbc.Driver");
                 conn = DriverManager.getConnection(url.getText().trim(), user.getText().trim(),
                         new String(dbpass.getPassword()));
                 PreparedStatement ps = conn.prepareStatement("SELECT role FROM users WHERE email=?");
@@ -105,7 +105,7 @@ public class DesktopApp extends JFrame {
             stationsModel.setRowCount(0);
             ResultSet rs = conn.createStatement().executeQuery(
                 "SELECT s.name, s.area, s.status, " +
-                "SUM(c.status='FREE') free, SUM(c.status='OCCUPIED') occ, SUM(c.status='FAULTY') faulty " +
+                "SUM(CASE WHEN c.status='FREE' THEN 1 ELSE 0 END) free, SUM(CASE WHEN c.status='OCCUPIED' THEN 1 ELSE 0 END) occ, SUM(CASE WHEN c.status='FAULTY' THEN 1 ELSE 0 END) faulty " +
                 "FROM stations s LEFT JOIN chargers c ON c.station_id=s.id GROUP BY s.id, s.name, s.area, s.status");
             while (rs.next())
                 stationsModel.addRow(new Object[]{rs.getString(1), rs.getString(2), rs.getInt(4),

@@ -1,0 +1,134 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,Arial,sans-serif}
+body{background:#070d18;color:#e5edf7;overflow-x:hidden}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:22px 60px;position:relative;z-index:5}
+.logo{font-size:21px;font-weight:800}.logo span{color:#22c55e}
+.nav .links a{color:#9fb2cc;text-decoration:none;margin-left:30px;font-size:14px}
+.nav .links a:hover{color:#fff}
+.btn{background:#22c55e;color:#052b13;border:none;padding:11px 22px;border-radius:10px;font-weight:700;font-size:14px}
+.btn.big{padding:15px 30px;font-size:15px}
+.btn.ghost{background:#ffffff10;color:#fff;border:1px solid #ffffff25}
+.hero{position:relative;padding:70px 60px 90px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.glow{position:absolute;border-radius:50%;filter:blur(120px);opacity:.45;z-index:0}
+.g1{width:560px;height:560px;background:#16a34a55;top:-160px;left:-120px}
+.g2{width:420px;height:420px;background:#0ea5e933;top:120px;right:-80px}
+.hero>div{position:relative;z-index:2}
+.tag{display:inline-block;background:#123a2666;border:1px solid #22c55e66;color:#4ade80;padding:7px 16px;border-radius:30px;font-size:13px;font-weight:600;margin-bottom:24px}
+h1{font-size:58px;line-height:1.08;font-weight:800;letter-spacing:-1px}
+h1 .grad{background:linear-gradient(90deg,#4ade80,#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:#9fb2cc;font-size:17px;margin:22px 0 30px;max-width:480px;line-height:1.6}
+.cta{display:flex;gap:14px;align-items:center}
+.trust{display:flex;gap:26px;margin-top:44px}
+.trust b{font-size:22px;display:block}
+.trust span{font-size:12px;color:#9fb2cc}
+.art{position:relative}
+.ev{width:100%;filter:drop-shadow(0 30px 60px #22c55e22)}
+.fcard{position:absolute;background:#0e172acc;backdrop-filter:blur(8px);border:1px solid #ffffff1f;border-radius:14px;padding:14px 18px;font-size:13px;box-shadow:0 20px 50px #00000066}
+.fcard b{display:block;font-size:14px}
+.fc1{top:8%;left:-4%}.fc1 b{color:#4ade80}
+.fc2{bottom:20%;right:-2%}.fc2 b{color:#fbbf24}
+.fc3{bottom:-4%;left:14%}
+.section{padding:80px 60px}
+.sechead{text-align:center;margin-bottom:50px}
+.sechead h2{font-size:36px;font-weight:800;letter-spacing:-.5px}
+.sechead p{color:#9fb2cc;margin-top:12px;font-size:15px}
+.live{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1050px;margin:0 auto}
+.scard{background:linear-gradient(160deg,#0e1728,#0b1220);border:1px solid #1e2c47;border-radius:18px;padding:24px;position:relative;overflow:hidden}
+.scard:before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#22c55e,#22d3ee)}
+.scard h3{font-size:17px;margin-bottom:4px}
+.scard .ad{color:#9fb2cc;font-size:12px;margin-bottom:16px}
+.ch{display:flex;gap:8px;margin-bottom:14px}
+.ch i{width:26px;height:26px;border-radius:7px;background:#123a26;border:1px solid #22c55e55;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:12px}
+.ch i.busy{background:#3a2c10;border-color:#f59e0b55}
+.ch i.full{background:#3a1414;border-color:#f8717155}
+.scard .meta{display:flex;justify-content:space-between;font-size:12px;color:#9fb2cc}
+.scard .meta b{color:#4ade80}
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1050px;margin:0 auto}
+.feat{background:#0e1728;border:1px solid #1e2c47;border-radius:18px;padding:28px}
+.feat .ic{width:46px;height:46px;border-radius:12px;background:#123a26;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px}
+.feat h3{font-size:16px;margin-bottom:8px}
+.feat p{color:#9fb2cc;font-size:13px;line-height:1.6}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1050px;margin:0 auto}
+.step{text-align:center;padding:20px}
+.step .n{width:52px;height:52px;border-radius:50%;background:linear-gradient(140deg,#22c55e,#16a34a);color:#052b13;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.step h3{font-size:16px;margin-bottom:8px}
+.step p{color:#9fb2cc;font-size:13px;line-height:1.6}
+.banner{margin:40px 60px;background:linear-gradient(120deg,#0d3a20,#0b2a3a);border:1px solid #22c55e44;border-radius:24px;padding:56px;text-align:center}
+.banner h2{font-size:34px;font-weight:800;margin-bottom:14px}
+.banner p{color:#9fb2cc;margin-bottom:28px}
+footer{padding:36px 60px;border-top:1px solid #1e2c47;display:flex;justify-content:space-between;color:#9fb2cc;font-size:13px}
+</style></head><body>
+<div class="nav"><div class="logo">⚡ EV<span>ChargeNet</span></div>
+<div class="links"><a href="#stations">Stations</a><a href="#features">Features</a><a href="#how">How it works</a><a href="/login">Sign in</a>
+<button class="btn" style="margin-left:26px" onclick="location.href='/register'">Register your EV</button></div></div>
+<div class="hero"><div class="glow g1"></div><div class="glow g2"></div>
+<div>
+<div class="tag">● Live across Bengaluru</div>
+<h1>Charge smarter.<br><span class="grad">Wait less.</span></h1>
+<p>Book EV charging slots in seconds, track your queue live, and pay only for the energy you use. One platform for drivers and network operators.</p>
+<div class="cta"><button class="btn big" onclick="location.href='/register'">Book a slot now</button><button class="btn big ghost" onclick="document.getElementById('stations').scrollIntoView({behavior:'smooth'})">View live stations</button></div>
+<div class="trust"><div><b>24</b><span>stations</span></div><div><b>68</b><span>chargers</span></div><div><b>₹9<span>/kWh</span></b><span>starting rate</span></div><div><b>11 min</b><span>avg wait</span></div></div>
+</div>
+<div class="art">
+<svg class="ev" viewBox="0 0 520 380">
+<defs><linearGradient id="car" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1e3a5f"/><stop offset="1" stop-color="#0e1f38"/></linearGradient>
+<linearGradient id="glowg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4ade80"/><stop offset="1" stop-color="#16a34a"/></linearGradient></defs>
+<ellipse cx="250" cy="330" rx="220" ry="18" fill="#0e1728"/>
+<rect x="60" y="80" width="70" height="240" rx="14" fill="url(#car)" stroke="#2c4a72" stroke-width="2"/>
+<rect x="74" y="98" width="42" height="34" rx="6" fill="#0b1220" stroke="#2c4a72"/>
+<rect x="80" y="104" width="30" height="6" rx="3" fill="url(#glowg)"/>
+<rect x="80" y="114" width="20" height="6" rx="3" fill="#22c55e55"/>
+<circle cx="95" cy="160" r="12" fill="none" stroke="url(#glowg)" stroke-width="3"/>
+<text x="95" y="165" font-size="12" fill="#4ade80" text-anchor="middle">⚡</text>
+<path d="M130 200 C 190 200, 180 260, 240 260" fill="none" stroke="url(#glowg)" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 8"/>
+<path d="M180 190 q60 -60 200 -50 q70 8 90 60 l10 40 q4 26 -22 26 l-270 0 q-26 0 -22 -26 z" fill="url(#car)" stroke="#2c4a72" stroke-width="2"/>
+<path d="M230 165 q50 -34 130 -28 q44 6 58 40 l-190 6 z" fill="#0b1a2e" stroke="#2c4a72"/>
+<circle cx="250" cy="272" r="30" fill="#0b1220" stroke="#2c4a72" stroke-width="4"/><circle cx="250" cy="272" r="12" fill="#16233c"/>
+<circle cx="420" cy="272" r="30" fill="#0b1220" stroke="#2c4a72" stroke-width="4"/><circle cx="420" cy="272" r="12" fill="#16233c"/>
+<rect x="196" y="240" width="24" height="16" rx="4" fill="none" stroke="url(#glowg)" stroke-width="3"/>
+<circle cx="470" cy="190" r="7" fill="#4ade80"><animate attributeName="opacity" values="1;.2;1" dur="1.6s" repeatCount="indefinite"/></circle>
+</svg>
+<div class="fcard fc1">Slot booked<b>Koramangala · Fast F2</b></div>
+<div class="fcard fc2">Queue position<b>#2 · est. wait 6 min</b></div>
+<div class="fcard fc3">Charging… 64%<b>28.4 kWh · ₹511</b></div>
+</div></div>
+<div class="section" id="stations" style="padding-top:30px">
+<div class="sechead"><h2>Live station availability</h2><p>Real-time charger status, updated as sessions start and stop.</p></div>
+<div class="live" id="liveCards"></div>
+<div class="sechead" id="noStations" style="display:none;margin-top:10px"><p>No stations added yet. New stations appear here automatically.</p></div></div></div>
+<div class="section" id="features" style="background:#0a1120">
+<div class="sechead"><h2>Built for drivers and operators</h2><p>Every part of the charging workflow, automated end to end.</p></div>
+<div class="feats">
+<div class="feat"><div class="ic">▣</div><h3>Instant slot booking</h3><p>Pick a station, charger type and time. Confirmation in under 3 seconds, with automatic slot allocation.</p></div>
+<div class="feat"><div class="ic">≣</div><h3>Live queue management</h3><p>Full chargers? You join a smart queue. The next free charger is assigned automatically with an estimated wait.</p></div>
+<div class="feat"><div class="ic">₹</div><h3>Transparent billing</h3><p>Energy, duration and cost calculated live. Download your invoice the moment the session ends.</p></div>
+<div class="feat"><div class="ic">◧</div><h3>Operator dashboard</h3><p>Utilization, revenue, peak hours and faulty chargers, all on one real-time dashboard.</p></div>
+<div class="feat"><div class="ic">⚡</div><h3>Fast + slow charging</h3><p>DC fast chargers up to 60 kW and AC chargers for longer stays, priced per kWh.</p></div>
+<div class="feat"><div class="ic">▤</div><h3>Reports &amp; exports</h3><p>Daily and monthly demand reports, CSV exports and full audit logs for every action.</p></div>
+</div></div>
+<div class="section" id="how">
+<div class="sechead"><h2>Charging in three steps</h2></div>
+<div class="steps">
+<div class="step"><div class="n">1</div><h3>Register your EV</h3><p>Create an account and add your vehicle in under a minute.</p></div>
+<div class="step"><div class="n">2</div><h3>Book a slot</h3><p>Choose a nearby station and charger type. Get instant confirmation or a queue spot.</p></div>
+<div class="step"><div class="n">3</div><h3>Charge &amp; go</h3><p>Track your session live and get the invoice on your phone when done.</p></div>
+</div></div>
+<div class="banner"><h2>Ready to charge smarter?</h2><p>Join the network and book your first slot today.</p>
+<button class="btn big" onclick="location.href='/register'">Create free account</button></div>
+<footer><div class="logo" style="font-size:16px">⚡ EV<span>ChargeNet</span></div>
+<div>ABC Green Energy Solutions Pvt. Ltd. · Bengaluru</div></footer>
+<script>
+fetch('/api/public/stations').then(r=>r.json()).then(list=>{
+  const wrap=document.getElementById('liveCards');
+  if(!list.length){document.getElementById('noStations').style.display='block';return;}
+  list.slice(0,3).forEach(s=>{
+    let dots='';
+    for(let i=0;i<s.total;i++){dots+='<i class="'+(i<s.free?'':'busy')+'"></i>';}
+    wrap.insertAdjacentHTML('beforeend',
+     '<div class="scard"><h3>'+s.name+'</h3><div class="ad">'+(s.area||'')+'</div>'+
+     '<div class="ch">'+dots+'</div>'+
+     '<div class="meta"><span>'+s.fast+'F + '+s.slow+'S chargers</span><span><b>'+s.free+' free now</b></span></div></div>');
+  });
+}).catch(()=>{document.getElementById('noStations').style.display='block';});
+</script>
+</body></html>

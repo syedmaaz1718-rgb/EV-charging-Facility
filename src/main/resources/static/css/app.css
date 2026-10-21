@@ -1,0 +1,58 @@
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,Arial,sans-serif}
+body{background:#0b1220;color:#e5edf7;min-height:100vh}
+.sidebar{position:fixed;left:0;top:0;bottom:0;width:230px;background:#0e1728;border-right:1px solid #1e2c47;padding:22px 14px}
+.logo{font-size:19px;font-weight:700;padding:6px 10px 22px}
+.logo span{color:#22c55e}
+.nav a{display:flex;gap:10px;align-items:center;padding:11px 12px;border-radius:9px;color:#8aa0bd;text-decoration:none;font-size:14px;margin-bottom:4px}
+.nav a.on{background:#15304a;color:#fff;border-left:3px solid #22c55e}
+.nav a:hover{color:#fff}
+.main{margin-left:230px;padding:26px 30px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+h1{font-size:22px} .sub{color:#8aa0bd;font-size:13px;margin-top:3px}
+.user{background:#111c31;border:1px solid #1e2c47;border-radius:10px;padding:8px 14px;font-size:13px}
+.user b{color:#22c55e}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px}
+.card{background:#111c31;border:1px solid #1e2c47;border-radius:14px;padding:18px}
+.card .k{color:#8aa0bd;font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+.card .v{font-size:28px;font-weight:700;margin-top:8px}
+.card .d{font-size:12px;margin-top:5px;color:#22c55e}
+.card .d.warn{color:#f59e0b}
+.panel{background:#111c31;border:1px solid #1e2c47;border-radius:14px;padding:20px;margin-bottom:20px}
+.panel h3{font-size:15px;margin-bottom:14px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{color:#8aa0bd;text-align:left;padding:9px 10px;border-bottom:1px solid #1e2c47;font-weight:600;font-size:12px;text-transform:uppercase}
+td{padding:11px 10px;border-bottom:1px solid #16233c}
+.pill{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600}
+.g{background:#123a26;color:#4ade80}.y{background:#3a2c10;color:#fbbf24}.r{background:#3a1414;color:#f87171}.b{background:#122a3a;color:#60a5fa}
+.btn{background:#22c55e;color:#062a12;border:none;padding:9px 18px;border-radius:9px;font-weight:700;font-size:13px;cursor:pointer}
+.btn.ghost{background:#16233c;color:#e5edf7;border:1px solid #1e2c47}
+.bars{display:flex;align-items:flex-end;gap:14px;height:170px;padding-top:10px}
+.bar{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px}
+.bar i{width:70%;background:linear-gradient(180deg,#22c55e,#15803d);border-radius:6px 6px 0 0;display:block}
+.bar i.pk{background:linear-gradient(180deg,#f59e0b,#b45309)}
+.bar span{font-size:11px;color:#8aa0bd}
+.grid2{display:grid;grid-template-columns:1.5fr 1fr;gap:20px}
+.donut{width:150px;height:150px;border-radius:50%;background:conic-gradient(#22c55e 0 62%,#f59e0b 62% 80%,#f87171 80% 92%,#1e2c47 92% 100%);margin:6px auto;position:relative}
+.donut:after{content:'62%';position:absolute;inset:26px;background:#111c31;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700}
+.legend{font-size:12px;color:#8aa0bd;margin-top:12px;line-height:2}
+.legend b{color:#e5edf7}
+input,select{width:100%;background:#0b1220;border:1px solid #1e2c47;border-radius:9px;padding:11px 12px;color:#e5edf7;font-size:14px;margin-bottom:14px}
+label{font-size:12px;color:#8aa0bd;display:block;margin-bottom:6px}
+.loginwrap{display:flex;min-height:100vh}
+.lleft{flex:1;background:linear-gradient(160deg,#06281a,#0b1220 70%);display:flex;flex-direction:column;justify-content:center;padding:70px}
+.lleft h1{font-size:38px;line-height:1.25}
+.lleft p{color:#8aa0bd;margin-top:16px;font-size:15px;max-width:420px}
+.lright{width:460px;display:flex;align-items:center;justify-content:center;background:#0e1728}
+.lbox{width:340px}
+.lbox h2{font-size:22px;margin-bottom:4px}
+.role{display:flex;gap:10px;margin:18px 0}
+.role div{flex:1;text-align:center;padding:9px;border-radius:9px;border:1px solid #1e2c47;font-size:13px;color:#8aa0bd}
+.role div.on{border-color:#22c55e;color:#22c55e;background:#123a2655;font-weight:600}
+.stationcard{background:#111c31;border:1px solid #1e2c47;border-radius:14px;padding:18px;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.stationcard .nm{font-weight:700;font-size:15px}
+.stationcard .ad{color:#8aa0bd;font-size:12px;margin-top:3px}
+.qbox{background:#123a26;border:1px solid #22c55e;border-radius:14px;padding:18px;display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.inv{background:#111c31;border:1px solid #1e2c47;border-radius:14px;padding:26px;max-width:520px}
+.inv .row{display:flex;justify-content:space-between;font-size:14px;padding:7px 0;border-bottom:1px dashed #1e2c47}
+.inv .tot{font-size:19px;font-weight:700;color:#22c55e;border-bottom:none}
